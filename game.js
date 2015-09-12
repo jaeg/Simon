@@ -313,7 +313,7 @@ function storyStateInit()
     document.getElementById("intro").style.display = "bock";
     document.getElementById("gameState").style.display = "none";
     document.getElementById("story").innerHTML = "";
-    var story = "In 1978, a game was introduced involving four lights that would flash in a randomized pattern while the user tried memorizing the pattern.  It turns out that this was brought to mankind by a malicous intergalatic entity to condition us to do as he says.  In order to defeat him you must do the one thing he can't stand.  The opposite of what he says...";
+    var story = "Long ago a kids game was introduced onto the human populace.  In 1978 an electronic version of this game was introduced.  What was not known at the time was that this ‘game’ was created to condition humans to do as instructed by an extraterrestrial intelligence known as Simon commanded.   Today Simon has made his presence known and there is only one way to stop it… to beat him at his own game by doing the opposite of what SIMON SAYS. ";
     storyDisplay(0, story, "story", "intro");
     
 }
