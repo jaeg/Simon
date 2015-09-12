@@ -267,13 +267,13 @@ function updateUI()
 }
 
 
-function storyDisplay(i)
+function storyDisplay(i, story, div, divParent)
 {
-    var story = "In 1978 a game was introduced involving four lights that would flash in a randomized pattern while the user tried memorizing the pattern.  Test";
 
-    document.getElementById("story").innerHTML += story.charAt(i);
+
+    document.getElementById(div).innerHTML += story.charAt(i);
     i++;
-    if (story.length > i && document.getElementById("intro").style.display != "none")
+    if (story.length > i && document.getElementById(divParent).style.display != "none")
     {
         delay = Math.floor(Math.random() * 100) + 50;
         if (story.charAt(i - 1) === ".")
@@ -289,7 +289,7 @@ function storyDisplay(i)
         {
             playNote("C", "2", ".01", ".4");
         }
-        setTimeout(storyDisplay, delay, i);
+        setTimeout(storyDisplay, delay, i,story, div, divParent);
     }
 }
 
@@ -313,7 +313,8 @@ function storyStateInit()
     document.getElementById("intro").style.display = "bock";
     document.getElementById("gameState").style.display = "none";
     document.getElementById("story").innerHTML = "";
-    storyDisplay(0);
+    var story = "In 1978 a game was introduced involving four lights that would flash in a randomized pattern while the user tried memorizing the pattern.  It turns out that this was brought to mankind by a malicous intergalatic entity to condition us to do as he says.  In order to defeat him you must do the one thing he can't stand.  The opposite of what he says...";
+    storyDisplay(0, story, "story", "intro");
     
 }
 
@@ -323,6 +324,8 @@ function failStateInit()
     document.getElementById("gameState").style.display = "none";
     document.getElementById("fail").style.display = "block";
     document.getElementById("win").style.display = "none"; 
+    var story = "You have failed mankind.  Simon the omnipotent being has continued his journey to Earth unstopped. ";
+    storyDisplay(0, story, "failText", "fail");
 }
 
 function winStateInit()
@@ -331,6 +334,8 @@ function winStateInit()
     document.getElementById("gameState").style.display = "none";
     document.getElementById("fail").style.display = "none";
     document.getElementById("win").style.display = "block"; 
+    var story = "With the nefarious Simon defeated Earth has been saved.  No longer do we have to look up at the sky and fear the dreaded chord of doom.";
+    storyDisplay(0, story, "winText", "win");
 }
 
 function toggleSound()
