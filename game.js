@@ -3,11 +3,11 @@ var tempo = 120;
 var soundOn = true;
 
 var simon = {
-    health: 100,
+    health: 10,
 
     octave: 3,
     moves: [],
-    health: 100,
+    
     isPresenting: false,
 
     timeouts: [],
@@ -119,7 +119,7 @@ var simon = {
             }
             i++;
 
-        }, that.health * 6);
+        }, 500);
 
     },
     clearPads: function()
@@ -236,7 +236,7 @@ function newGame()
 {
     player.lives = 3;
     simon.moves = [];
-    simon.health = 100;
+    simon.health = 50;
     player.currentMove = 0;
     
 
@@ -303,7 +303,7 @@ function playStateInit()
     simon.intro();
     setTimeout(function()
     {
-        simon.init();
+        //simon.init();
         newGame();
     }, 2200);
 }
@@ -313,7 +313,7 @@ function storyStateInit()
     document.getElementById("intro").style.display = "bock";
     document.getElementById("gameState").style.display = "none";
     document.getElementById("story").innerHTML = "";
-    var story = "In 1978 a game was introduced involving four lights that would flash in a randomized pattern while the user tried memorizing the pattern.  It turns out that this was brought to mankind by a malicous intergalatic entity to condition us to do as he says.  In order to defeat him you must do the one thing he can't stand.  The opposite of what he says...";
+    var story = "In 1978, a game was introduced involving four lights that would flash in a randomized pattern while the user tried memorizing the pattern.  It turns out that this was brought to mankind by a malicous intergalatic entity to condition us to do as he says.  In order to defeat him you must do the one thing he can't stand.  The opposite of what he says...";
     storyDisplay(0, story, "story", "intro");
     
 }
@@ -324,6 +324,7 @@ function failStateInit()
     document.getElementById("gameState").style.display = "none";
     document.getElementById("fail").style.display = "block";
     document.getElementById("win").style.display = "none"; 
+    document.getElementById("failText").innerHTML = "";
     var story = "You have failed mankind.  Simon the omnipotent being has continued his journey to Earth unstopped. ";
     storyDisplay(0, story, "failText", "fail");
 }
@@ -334,6 +335,7 @@ function winStateInit()
     document.getElementById("gameState").style.display = "none";
     document.getElementById("fail").style.display = "none";
     document.getElementById("win").style.display = "block"; 
+    document.getElementById("winText").innerHTML = "";
     var story = "With the nefarious Simon defeated Earth has been saved.  No longer do we have to look up at the sky and fear the dreaded chord of doom.";
     storyDisplay(0, story, "winText", "win");
 }
@@ -353,5 +355,5 @@ function toggleSound()
 
     return false;
 }
-
+simon.init();
 storyStateInit();
