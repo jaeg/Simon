@@ -275,7 +275,7 @@ function storyDisplay(i, story, div, divParent)
     i++;
     if (story.length > i && document.getElementById(divParent).style.display != "none")
     {
-        delay = Math.floor(Math.random() * 100) + 50;
+        delay = Math.floor(Math.random() * 100) + 25;
         if (story.charAt(i - 1) === ".")
         {
             playNote("B", "2", ".1", ".4");
