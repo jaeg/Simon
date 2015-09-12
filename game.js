@@ -262,7 +262,7 @@ function playNote(note, octave, length, gain)
 
 function updateUI()
 {
-    player.livesDiv.innerHTML = "Lives: " + player.lives;
+    player.livesDiv.innerHTML = "Player Lives: " + player.lives;
     simon.centerCircle.innerHTML = simon.health;
 }
 
